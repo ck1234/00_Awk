@@ -1,0 +1,5 @@
+#from https://www.biostars.org/p/143189/
+#replace chr name by matching column old from chr_name.txt to Gal5_genes.gff3, then replace match with column new from chr_name.txt.
+#make sure you keep a copy of your original gff file because this code over-writes the file
+
+cat chr_name.txt | while read old new; do sed "s/$old/$new/g" Gal5_genes.gff3 >tmp.txt; mv tmp.txt Gal5_genes.gff3; done
